@@ -1,0 +1,37 @@
+#pragma once
+
+#include <memory>
+
+#include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/Transformable.hpp>
+#include <SFML/System/NonCopyable.hpp>
+#include <SFML/System/Time.hpp>
+
+namespace drawing {
+
+class scene_node : public sf::Transformable,
+                   public sf::Drawable,
+                   public sf::NonCopyable {
+ public:
+  using ptr = std::unique_ptr<scene_node>;
+
+ public:
+  void attach_child(ptr child);
+  scene_node::ptr detach_child(const scene_node& node);
+  void update(sf::Time dt);
+
+ private:
+  void draw(sf::RenderTarget& target,
+            sf::RenderStates states) const override final;
+  virtual void draw_current(sf::RenderTarget& target,
+                            sf::RenderStates states) const;
+  void draw_child(sf::RenderTarget& target, sf::RenderStates states) const;
+  virtual void update_current(sf::Time dt);
+  virtual void update_children(sf::Time dt);
+
+ private:
+  scene_node* parent_ = nullptr;
+  std::vector<ptr> children_;
+};
+
+}  // namespace drawing

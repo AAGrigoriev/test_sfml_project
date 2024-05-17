@@ -3,8 +3,9 @@
 using namespace std;
 
 int main() {
-  game::Game game;
+    game::game game;
   game.run();
 
+  
   return 0;
 }
