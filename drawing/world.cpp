@@ -11,7 +11,7 @@ world::world(sf::RenderWindow& window)
       world_bounds_(0.f, 0.f, world_view_.getSize().x, 2000.f),
       spawn_position_(world_view_.getSize().x / 2.f,
                       world_bounds_.height - world_view_.getSize().y / 2.f),
-      scroll_speed_(50.f),
+      scroll_speed_(0.1),
       player_aircraft_(nullptr) {
   load_textures();
   build_scene();
@@ -21,9 +21,9 @@ world::world(sf::RenderWindow& window)
 }
 
 void world::load_textures() {
-  textures_.load(resource::textures_id::eagle, "Media/Textures/Eagle.png");
-  textures_.load(resource::textures_id::raptor, "Media/Textures/Raptor.png");
-  textures_.load(resource::textures_id::desert, "Media/Textures/Desert.png");
+  textures_.load(resource::textures_id::eagle, "media/textures/Dick1.png");
+  textures_.load(resource::textures_id::raptor, "media/textures/Dick2.png");
+  textures_.load(resource::textures_id::desert, "media/textures/Desert.png");
 }
 
 void world::build_scene() {
@@ -51,17 +51,18 @@ void world::build_scene() {
       new aircraft(aircraft::type::eagle, textures_));
   player_aircraft_ = leader.get();
   player_aircraft_->setPosition(spawn_position_);
+  player_aircraft_->set_velocity(1.f, scroll_speed_);
   scene_layers_[static_cast<std::size_t>(layer::air)]->attach_child(
       std::move(leader));
 
   std::unique_ptr<aircraft> left_escort(
       new aircraft(aircraft::type::raptor, textures_));
-  player_aircraft_->setPosition(-80.f, 50.f);
+  left_escort->setPosition(-400.f, 80.f);
   player_aircraft_->attach_child(std::move(left_escort));
 
   std::unique_ptr<aircraft> right_escort(
       new aircraft(aircraft::type::raptor, textures_));
-  player_aircraft_->setPosition(80.f, 50.f);
+  right_escort->setPosition(400.f, 80.f);
   player_aircraft_->attach_child(std::move(right_escort));
 }
 
@@ -77,5 +78,10 @@ void world::update(sf::Time dt) {
     player_aircraft_->set_velocity(velocity);
   }
   scene_graph_.update(dt);
+}
+
+void world::draw() {
+  window_.setView(world_view_);
+  window_.draw(scene_graph_);
 }
 }  // namespace drawing

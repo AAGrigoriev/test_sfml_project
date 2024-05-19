@@ -1,5 +1,6 @@
 #pragma once
 
+#include <assert.h>
 #include <filesystem>
 #include <map>
 #include <memory>
