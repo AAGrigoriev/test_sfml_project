@@ -8,7 +8,6 @@
 
 namespace resource {
 
-// RAII
 template <typename Resource, typename Identifier>
 class resource_holder {
  public:
