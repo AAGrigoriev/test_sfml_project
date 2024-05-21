@@ -17,4 +17,8 @@ find_package(SFML
     COMPONENTS
     system window graphics network audio REQUIRED)
 
-target_link_libraries(sfml PUBLIC drawing INTERFACE resource_holder INTERFACE utility PUBLIC sfml-graphics)
+target_link_libraries(sfml
+    PUBLIC sfml-graphics
+    PUBLIC drawing
+    INTERFACE resource_holder
+    INTERFACE utility)
