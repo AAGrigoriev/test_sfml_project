@@ -7,7 +7,7 @@
 #include <stdexcept>
 #include <utility>
 
-namespace resource {
+namespace utility {
 
 template <typename Resource, typename Identifier>
 class resource_holder {
@@ -76,4 +76,4 @@ void resource_holder<Resource, Identifier>::insert_resource(
   assert(inserted.second);
 }
 
-}  // namespace resource
+}  // namespace utility

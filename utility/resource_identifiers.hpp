@@ -4,7 +4,7 @@ namespace sf {
 class Texture;
 }
 
-namespace resource {
+namespace utility {
 
 enum class textures_id { ufo, eagle, raptor, desert };
 
@@ -13,4 +13,4 @@ class resource_holder;
 
 using texture_holder = resource_holder<sf::Texture, textures_id>;
 
-}  // namespace resource
+}  // namespace utility

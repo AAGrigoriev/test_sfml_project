@@ -6,20 +6,20 @@
 
 namespace drawing {
 
-resource::textures_id to_textures_id(aircraft::type type) {
+utility::textures_id to_textures_id(aircraft::type type) {
   switch (type) {
     case aircraft::type::eagle:
-      return resource::textures_id::eagle;
+      return utility::textures_id::eagle;
     case aircraft::type::raptor:
-      return resource::textures_id::raptor;
+      return utility::textures_id::raptor;
     case aircraft::type::ufo:
-      return resource::textures_id::ufo;
+      return utility::textures_id::ufo;
     defalut:
-      return resource::textures_id::eagle;
+      return utility::textures_id::eagle;
   }
 }
 
-aircraft::aircraft(type type, const resource::texture_holder& textures)
+aircraft::aircraft(type type, const utility::texture_holder& textures)
     : type_(type), sprite_(textures.get_resource(to_textures_id(type))) {
   sf::FloatRect bounds = sprite_.getLocalBounds();
   sprite_.setOrigin(bounds.width / 2, bounds.height / 2);

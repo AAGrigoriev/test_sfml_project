@@ -11,7 +11,7 @@ class aircraft : public entity {
   enum class type { ufo, eagle, raptor };
 
  public:
-  explicit aircraft(type type, const resource::texture_holder& textures);
+  explicit aircraft(type type, const utility::texture_holder& textures);
 
  private:
   void draw_current(sf::RenderTarget& target,

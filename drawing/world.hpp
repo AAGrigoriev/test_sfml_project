@@ -31,7 +31,7 @@ class world : private sf::NonCopyable {
  private:
   sf::RenderWindow& window_;
   sf::View world_view_;
-  resource::texture_holder textures_;
+  utility::texture_holder textures_;
   scene_node scene_graph_;
   std::array<scene_node*, static_cast<std::size_t>(layer::layer_count)>
       scene_layers_;

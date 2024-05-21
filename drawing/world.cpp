@@ -22,9 +22,9 @@ world::world(sf::RenderWindow& window)
 }
 
 void world::load_textures() {
-  textures_.load(resource::textures_id::ufo, "media/textures/Eagle.png");
-  textures_.load(resource::textures_id::raptor, "media/textures/Raptor.png");
-  textures_.load(resource::textures_id::desert,
+  textures_.load(utility::textures_id::ufo, "media/textures/Eagle.png");
+  textures_.load(utility::textures_id::raptor, "media/textures/Raptor.png");
+  textures_.load(utility::textures_id::desert,
                  "media/textures/background.png");
 }
 
@@ -39,7 +39,7 @@ void world::build_scene() {
 
   // load background textures
   sf::Texture& background_texture =
-      textures_.get_resource(resource::textures_id::desert);
+      textures_.get_resource(utility::textures_id::desert);
   sf::IntRect texture_rect(world_bounds_);
   background_texture.setRepeated(true);
 
