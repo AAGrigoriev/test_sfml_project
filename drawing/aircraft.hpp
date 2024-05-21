@@ -8,7 +8,7 @@ namespace drawing {
 
 class aircraft : public entity {
  public:
-  enum class type { eagle, raptor };
+  enum class type { ufo, eagle, raptor };
 
  public:
   explicit aircraft(type type, const resource::texture_holder& textures);

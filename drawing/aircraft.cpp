@@ -12,6 +12,8 @@ resource::textures_id to_textures_id(aircraft::type type) {
       return resource::textures_id::eagle;
     case aircraft::type::raptor:
       return resource::textures_id::raptor;
+    case aircraft::type::ufo:
+      return resource::textures_id::ufo;
     defalut:
       return resource::textures_id::eagle;
   }

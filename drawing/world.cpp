@@ -2,6 +2,7 @@
 #include "sprite_node.hpp"
 
 namespace drawing {
+
 world::world(sf::RenderWindow& window)
     : window_(window),
       world_view_(window.getDefaultView()),
@@ -21,9 +22,10 @@ world::world(sf::RenderWindow& window)
 }
 
 void world::load_textures() {
-  textures_.load(resource::textures_id::eagle, "media/textures/Dick1.png");
-  textures_.load(resource::textures_id::raptor, "media/textures/Dick2.png");
-  textures_.load(resource::textures_id::desert, "media/textures/Desert.png");
+  textures_.load(resource::textures_id::ufo, "media/textures/Eagle.png");
+  textures_.load(resource::textures_id::raptor, "media/textures/Raptor.png");
+  textures_.load(resource::textures_id::desert,
+                 "media/textures/background.png");
 }
 
 void world::build_scene() {
@@ -48,21 +50,21 @@ void world::build_scene() {
       std::move(background_sprite));
 
   std::unique_ptr<aircraft> leader(
-      new aircraft(aircraft::type::eagle, textures_));
+      new aircraft(aircraft::type::ufo, textures_));
   player_aircraft_ = leader.get();
   player_aircraft_->setPosition(spawn_position_);
-  player_aircraft_->set_velocity(1.f, scroll_speed_);
+  player_aircraft_->set_velocity(500.f, scroll_speed_);
   scene_layers_[static_cast<std::size_t>(layer::air)]->attach_child(
       std::move(leader));
 
   std::unique_ptr<aircraft> left_escort(
       new aircraft(aircraft::type::raptor, textures_));
-  left_escort->setPosition(-400.f, 80.f);
+  left_escort->setPosition(-80.f, 80.f);
   player_aircraft_->attach_child(std::move(left_escort));
 
   std::unique_ptr<aircraft> right_escort(
       new aircraft(aircraft::type::raptor, textures_));
-  right_escort->setPosition(400.f, 80.f);
+  right_escort->setPosition(80.f, 80.f);
   player_aircraft_->attach_child(std::move(right_escort));
 }
 

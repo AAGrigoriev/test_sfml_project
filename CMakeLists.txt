@@ -10,10 +10,11 @@ add_executable(sfml main.cpp
     game.cpp)
 
 add_subdirectory(drawing)
-add_subdirectory(resource_holder)
+add_subdirectory(utility)
+add_subdirectory(command)
 
 find_package(SFML
     COMPONENTS
     system window graphics network audio REQUIRED)
 
-target_link_libraries(sfml PUBLIC drawing INTERFACE resource_holder PUBLIC sfml-graphics)
+target_link_libraries(sfml PUBLIC drawing INTERFACE resource_holder INTERFACE utility PUBLIC sfml-graphics)

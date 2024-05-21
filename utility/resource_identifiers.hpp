@@ -1,6 +1,8 @@
 #pragma once
 
-#include <SFML/Graphics/Texture.hpp>
+namespace sf {
+class Texture;
+}
 
 namespace resource {
 
