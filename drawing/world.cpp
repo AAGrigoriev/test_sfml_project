@@ -24,8 +24,7 @@ world::world(sf::RenderWindow& window)
 void world::load_textures() {
   textures_.load(utility::textures_id::ufo, "media/textures/Eagle.png");
   textures_.load(utility::textures_id::raptor, "media/textures/Raptor.png");
-  textures_.load(utility::textures_id::desert,
-                 "media/textures/background.png");
+  textures_.load(utility::textures_id::desert, "media/textures/background.png");
 }
 
 void world::build_scene() {
@@ -69,7 +68,18 @@ void world::build_scene() {
 }
 
 void world::update(sf::Time dt) {
-  world_view_.move(0.f, scroll_speed_);
+  // scroll view and reset player
+  world_view_.move(0.f, scroll_speed_ * dt.asSeconds());
+  player_aircraft_->set_velocity(0.f, 0.f);
+
+  while (!command_queue_.empty()) {
+    scene_graph_.on_command(command_queue_.pop(), dt);
+  }
+
+  adapt_player_velocity();
+  scene_graph_.update(dt);
+  adapt_player_position();
+
   sf::Vector2f posititon = player_aircraft_->getPosition();
   sf::Vector2f velocity = player_aircraft_->get_velocity();
 

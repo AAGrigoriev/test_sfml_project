@@ -1,5 +1,7 @@
 #pragma once
 
+#include <command.hpp>
+
 #include <memory>
 
 #include <SFML/Graphics/Drawable.hpp>
@@ -19,13 +21,19 @@ class scene_node : public sf::Transformable,
   void attach_child(ptr child);
   scene_node::ptr detach_child(const scene_node& node);
   void update(sf::Time dt);
+  void on_command(const command::command& command, sf::Time time);
+
+ public:
+  virtual command::category_flag get_category() const;
+
+ private:
+  void draw_child(sf::RenderTarget& target, sf::RenderStates states) const;
 
  private:
   void draw(sf::RenderTarget& target,
             sf::RenderStates states) const override final;
   virtual void draw_current(sf::RenderTarget& target,
                             sf::RenderStates states) const;
-  void draw_child(sf::RenderTarget& target, sf::RenderStates states) const;
   virtual void update_current(sf::Time dt);
   virtual void update_children(sf::Time dt);
 

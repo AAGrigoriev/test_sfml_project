@@ -13,6 +13,8 @@ class flags {
       typename std::make_unsigned_t<typename std::underlying_type_t<Enum>>;
 
  public:
+  explicit flags(Enum e) { set(e, true); }
+
   flags& set(Enum e, bool set = true) noexcept {
     bits_.set(to_underlying(e), set);
     return *this;
@@ -23,6 +25,10 @@ class flags {
   flags& reset() noexcept {
     bits_.reset();
     return *this;
+  }
+
+  [[nodiscard]] bool operator==(const flags<Enum>& rhs) const noexcept {
+    return bits_ == rhs;
   }
 
   [[nodiscard]] bool all() const noexcept { return bits_.all(); }

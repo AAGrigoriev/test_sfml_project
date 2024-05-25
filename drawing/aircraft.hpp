@@ -13,6 +13,8 @@ class aircraft : public entity {
  public:
   explicit aircraft(type type, const utility::texture_holder& textures);
 
+  command::category_flag get_category() const override;
+
  private:
   void draw_current(sf::RenderTarget& target,
                     sf::RenderStates states) const override;

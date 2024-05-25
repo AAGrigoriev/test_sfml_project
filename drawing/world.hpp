@@ -1,6 +1,7 @@
 #pragma once
 
 #include "aircraft.hpp"
+#include "command_queue.hpp"
 #include "resource_holder.hpp"
 #include "resource_identifiers.hpp"
 
@@ -24,6 +25,9 @@ class world : private sf::NonCopyable {
  private:
   void load_textures();
   void build_scene();
+  void adapt_player_position();
+  void adapt_player_velocity();
+  command::command_queue& get_command_queue();
 
  private:
   enum class layer { background, air, layer_count };
@@ -35,6 +39,7 @@ class world : private sf::NonCopyable {
   scene_node scene_graph_;
   std::array<scene_node*, static_cast<std::size_t>(layer::layer_count)>
       scene_layers_;
+  command::command_queue command_queue_;
 
   sf::FloatRect world_bounds_;
   sf::Vector2f spawn_position_;

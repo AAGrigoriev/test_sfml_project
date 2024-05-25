@@ -45,6 +45,20 @@ void scene_node::update(sf::Time dt) {
   update_current(dt);
 }
 
+void scene_node::on_command(command::command& command, sf::Time time) {
+  if (command.category_ == get_category()) {
+    command.action_(*this, time);
+  }
+
+  for (auto& child : children_) {
+    child->on_command(command, time);
+  }
+}
+
+command::category_flag scene_node::get_category() const {
+  return command::category_flag(command::category::scene);
+}
+
 void scene_node::update_current(sf::Time dt) {
   // empty methods
 }

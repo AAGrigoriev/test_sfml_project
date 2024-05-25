@@ -1,21 +1,19 @@
-#include "command_category.hpp"
+#pragma once
 
-#include <assert.h>
-#include <functional>
+#include "command.hpp"
 
-#include <SFML/System.hpp>
-
-namespace drawing {
-
-class scene_node;
-
-}  // namespace drawing
+#include <queue>
 
 namespace command {
 
-class command {
-  std::function<void(drawing::scene_node&, sf::Time)> action_;
-  category_flag category_;
+class command_queue {
+ public:
+  void push(const command& command);
+  command pop();
+  bool empty() const noexcept;
+
+ private:
+  std::queue<command> queue_;
 };
 
 }  // namespace command

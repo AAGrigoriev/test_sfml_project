@@ -25,6 +25,16 @@ aircraft::aircraft(type type, const utility::texture_holder& textures)
   sprite_.setOrigin(bounds.width / 2, bounds.height / 2);
 }
 
+command::category_flag aircraft::get_category() const {
+  switch (type_) {
+    case type::eagle:
+    case type::ufo:
+      return command::category_flag(command::category::player_aircraft);
+    case type::raptor:
+      return command::category_flag(command::category::enemy_aircraft);
+  }
+}
+
 void aircraft::draw_current(sf::RenderTarget& target,
                             sf::RenderStates states) const {
   target.draw(sprite_, states);

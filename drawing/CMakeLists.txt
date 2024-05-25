@@ -16,5 +16,6 @@ add_library(drawing STATIC ${FILES}
     world.hpp
     world.cpp
 )
-target_include_directories(drawing PUBLIC ${CMAKE_SOURCE_DIR}/utility)
-target_link_libraries(drawing INTERFACE utility)
+
+target_include_directories(drawing PUBLIC ${CMAKE_SOURCE_DIR}/utility PUBLIC ${CMAKE_SOURCE_DIR}/command)
+target_link_libraries(drawing PUBLIC utility PUBLIC command)
