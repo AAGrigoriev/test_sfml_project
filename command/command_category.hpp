@@ -7,9 +7,10 @@ enum class category {
   scene,
   player_aircraft,
   allied_aircraft,
-  enemy_aircraft
+  enemy_aircraft,
+  size
 };
 
 using category_flag = utility::flags<category>;
 
-};  // namespace command
+}  // namespace command
