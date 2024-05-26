@@ -43,7 +43,12 @@ class flags {
 
   [[nodiscard]] std::size_t count() const noexcept { return bits_.count(); }
 
-  constexpr bool operator[](Enum e) const { return bits_[underlying(e)]; }
+  constexpr bool operator[](Enum e) const { return bits_[to_underlying(e)]; }
+
+  flags& operator=(Enum e) {
+    bits_.set(to_underlying(e), true);
+    return *this;
+  }
 
  private:
   static constexpr underlying_type to_underlying(Enum e) {

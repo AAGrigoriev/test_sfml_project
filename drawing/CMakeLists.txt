@@ -8,14 +8,15 @@ set(FILES
     scene_node.hpp
     scene_node.cpp
     aircraft.hpp
-    aircraft.cpp)
-
-add_library(drawing STATIC ${FILES}
+    aircraft.cpp
     sprite_node.hpp
     sprite_node.cpp
     world.hpp
     world.cpp
-)
+    player.hpp
+    player.cpp)
+
+add_library(drawing STATIC ${FILES})
 
 target_include_directories(drawing PUBLIC ${CMAKE_SOURCE_DIR}/utility PUBLIC ${CMAKE_SOURCE_DIR}/command)
 target_link_libraries(drawing PUBLIC utility PUBLIC command)
