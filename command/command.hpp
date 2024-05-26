@@ -24,9 +24,10 @@ struct command {
 
 template <typename GameObject, typename Function>
 action_function derived_action(Function f) {
-  return [=](drawing::scene_node& node, sf::Time t) {
+  return [=](drawing::scene_node& node, sf::Time dt) {
     assert(dynamic_cast<GameObject*>(&node));
-    f(static_cast<GameObject&>(node), t);
+
+    f(static_cast<GameObject&>(node), dt);
   };
 }
 

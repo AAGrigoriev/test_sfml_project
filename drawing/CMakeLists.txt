@@ -13,8 +13,8 @@ set(FILES
     sprite_node.cpp
     world.hpp
     world.cpp
-    player.hpp
-    player.cpp
+    player_contoller.hpp
+    player_contoller.cpp
     entity_commands.hpp
     entity_commands.cpp)
 

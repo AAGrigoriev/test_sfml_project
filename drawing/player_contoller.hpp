@@ -12,7 +12,7 @@ class command_queue;
 
 namespace drawing {
 
-class player {
+class player_controller {
  public:
   enum class action {
     move_left = 0,
@@ -23,16 +23,15 @@ class player {
   };
 
  public:
-  player();
+  player_controller();
   void handle_event(const sf::Event& vent, command::command_queue& commands);
   void handle_realtime_input(command::command_queue& commands);
   void assign_key(action action, sf::Keyboard::Key key);
   sf::Keyboard::Key get_assigned_key(action action) const;
 
  private:
-  void initialize_action();
   void initialize_key_bindings();
-  static bool is_reatime_action(action action);
+  void initialize_action();
 
  private:
   std::unordered_map<sf::Keyboard::Key, action> key_binding_;

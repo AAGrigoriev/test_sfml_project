@@ -28,7 +28,7 @@ class flags {
   }
 
   [[nodiscard]] bool operator==(const flags<Enum>& rhs) const noexcept {
-    return bits_ == rhs;
+    return bits_ == rhs.bits_;
   }
 
   [[nodiscard]] bool all() const noexcept { return bits_.all(); }

@@ -4,7 +4,6 @@
 #include "command_queue.hpp"
 #include "resource_holder.hpp"
 #include "resource_identifiers.hpp"
-
 #include "scene_node.hpp"
 
 #include <array>
