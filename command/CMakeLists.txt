@@ -7,7 +7,9 @@ set(FILES
     command.cpp
     category_command.hpp
     command_queue.hpp
-    command_queue.cpp)
+    command_queue.cpp
+
+)
 
 add_library(command STATIC ${FILES})
 

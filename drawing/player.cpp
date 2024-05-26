@@ -15,6 +15,7 @@ player::player() {
 
 void player::initialize_action() {
   constexpr float player_speed = 100.f;
+
   action_binding_[action::move_left].action_ =
       [](scene_node& node, sf::Time dt) { node.move(-player_speed, 0.f); };
   action_binding_[action::move_right].action_ =

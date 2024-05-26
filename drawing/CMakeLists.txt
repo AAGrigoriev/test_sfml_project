@@ -14,7 +14,9 @@ set(FILES
     world.hpp
     world.cpp
     player.hpp
-    player.cpp)
+    player.cpp
+    entity_commands.hpp
+    entity_commands.cpp)
 
 add_library(drawing STATIC ${FILES})
 
