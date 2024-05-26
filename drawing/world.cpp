@@ -1,6 +1,8 @@
 #include "world.hpp"
 #include "sprite_node.hpp"
 
+#include <cmath>
+
 namespace drawing {
 
 world::world(sf::RenderWindow& window)
@@ -55,16 +57,34 @@ void world::build_scene() {
   player_aircraft_->set_velocity(500.f, scroll_speed_);
   scene_layers_[static_cast<std::size_t>(layer::air)]->attach_child(
       std::move(leader));
+}
 
-  std::unique_ptr<aircraft> left_escort(
-      new aircraft(aircraft::type::raptor, textures_));
-  left_escort->setPosition(-80.f, 80.f);
-  player_aircraft_->attach_child(std::move(left_escort));
+void world::adapt_player_position() {
+  // world view size
+  sf::FloatRect view_bound(
+      world_view_.getCenter() - world_view_.getSize() / 2.f,
+      world_view_.getSize());
+  constexpr float border_distance = 30.f;
 
-  std::unique_ptr<aircraft> right_escort(
-      new aircraft(aircraft::type::raptor, textures_));
-  right_escort->setPosition(80.f, 80.f);
-  player_aircraft_->attach_child(std::move(right_escort));
+  sf::Vector2f pos = player_aircraft_->getPosition();
+  pos.x = std::max(pos.x, view_bound.left + border_distance);
+  pos.x = std::min(pos.x, view_bound.left + view_bound.width - border_distance);
+  pos.y = std::max(pos.y, view_bound.top + border_distance);
+  pos.y = std::min(pos.y, view_bound.top + view_bound.height - border_distance);
+}
+
+void world::adapt_player_velocity() {
+  sf::Vector2f v = player_aircraft_->get_velocity();
+
+  if (v.x != 0 && v.y != 0) {
+    player_aircraft_->set_velocity(v / std::sqrt(2.f));
+  }
+
+  player_aircraft_->accelerate(0.f, scroll_speed_);
+}
+
+command::command_queue& world::get_command_queue() {
+  return command_queue_;
 }
 
 void world::update(sf::Time dt) {
@@ -79,17 +99,6 @@ void world::update(sf::Time dt) {
   adapt_player_velocity();
   scene_graph_.update(dt);
   adapt_player_position();
-
-  sf::Vector2f posititon = player_aircraft_->getPosition();
-  sf::Vector2f velocity = player_aircraft_->get_velocity();
-
-  // return to position
-  if (posititon.x <= world_bounds_.left + 150 ||
-      posititon.x >= world_bounds_.left + world_bounds_.width - 150) {
-    velocity.x = -velocity.x;
-    player_aircraft_->set_velocity(velocity);
-  }
-  scene_graph_.update(dt);
 }
 
 void world::draw() {

@@ -42,7 +42,7 @@ void scene_node::draw_child(sf::RenderTarget& target,
 
 void scene_node::update(sf::Time dt) {
   update_current(dt);
-  update_current(dt);
+  update_children(dt);
 }
 
 void scene_node::on_command(const command::command& command, sf::Time time) {

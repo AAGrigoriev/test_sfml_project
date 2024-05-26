@@ -25,11 +25,12 @@ void game::run() {
   while (window_.isOpen()) {
     sf::Time elapsed_time = clock.restart();
     time_since_last_update += elapsed_time;
+
     while (time_since_last_update > time_per_frame_) {
       time_since_last_update -= time_per_frame_;
 
       processEvents();
-      update(elapsed_time);
+      update(time_per_frame_);
     }
 
     update_statistic(elapsed_time);
