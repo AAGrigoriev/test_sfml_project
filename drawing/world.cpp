@@ -24,9 +24,9 @@ world::world(sf::RenderWindow& window)
 }
 
 void world::load_textures() {
-  textures_.load(utility::textures_id::ufo, "media/textures/Eagle.png");
-  textures_.load(utility::textures_id::raptor, "media/textures/Raptor.png");
-  textures_.load(utility::textures_id::desert, "media/textures/background.png");
+  textures_.load(utility::textures_id::ufo, "todo_textures.png");
+  textures_.load(utility::textures_id::raptor, "todo_textures.png");
+  textures_.load(utility::textures_id::desert, "todo_textures.png");
 }
 
 void world::build_scene() {
