@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.20)
+
+project(drawing)
+
+set(FILES
+    entity.hpp
+    entity.cpp
+    scene_node.hpp
+    scene_node.cpp
+    aircraft.hpp
+    aircraft.cpp
+    sprite_node.hpp
+    sprite_node.cpp
+    world.hpp
+    world.cpp
+    player_contoller.hpp
+    player_contoller.cpp
+    entity_commands.hpp
+    entity_commands.cpp)
+
+add_library(drawing STATIC ${FILES})
+
+target_include_directories(drawing PUBLIC ${CMAKE_SOURCE_DIR}/utility PUBLIC ${CMAKE_SOURCE_DIR}/command)
+target_link_libraries(drawing PUBLIC utility PUBLIC command)
