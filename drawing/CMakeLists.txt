@@ -16,7 +16,11 @@ set(FILES
     player_contoller.hpp
     player_contoller.cpp
     entity_commands.hpp
-    entity_commands.cpp)
+    entity_commands.cpp
+    state_stack.hpp
+    state_stack.cpp
+    state.hpp
+    state.cpp)
 
 add_library(drawing STATIC ${FILES})
 
