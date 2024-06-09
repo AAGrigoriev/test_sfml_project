@@ -14,7 +14,7 @@ enum class state_id { none, title, menu, game, loading, pause };
 
 class state {
  public:
-  using state_ptr = std::unique_ptr<state>;
+  using state_ptr = std::shared_ptr<state>;
   struct context {
     std::shared_ptr<sf::RenderWindow> window;
     std::shared_ptr<utility::texture_holder> textures;
