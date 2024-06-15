@@ -20,7 +20,9 @@ set(FILES
     state_stack.hpp
     state_stack.cpp
     state.hpp
-    state.cpp)
+    state.cpp
+    application.hpp
+    application.cpp)
 
 add_library(drawing STATIC ${FILES})
 

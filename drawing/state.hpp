@@ -6,6 +6,8 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include <gsl/pointers>
+
 #include <memory>
 
 namespace drawing {
@@ -16,10 +18,10 @@ class state {
  public:
   using state_ptr = std::unique_ptr<state>;
   struct context {
-    std::shared_ptr<sf::RenderWindow> window;
-    std::shared_ptr<utility::texture_holder> textures;
-    std::shared_ptr<utility::font_holder> fonts;
-    std::shared_ptr<player_controller> player;
+    gsl::not_null<sf::RenderWindow*> window;
+    gsl::not_null<utility::texture_holder*> textures;
+    gsl::not_null<utility::font_holder*> fonts;
+    gsl::not_null<player_controller*> player;
   };
 
  public:
@@ -35,7 +37,7 @@ class state {
   void request_stack_pop();
   void request_state_clear();
 
-  const context& get_context() const;
+  context get_context() const;
 
  private:
   state_stack::state_stack_w_ptr state_stack_;

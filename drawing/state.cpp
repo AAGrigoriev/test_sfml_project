@@ -22,7 +22,7 @@ void state::request_state_clear() {
   }
 }
 
-const state::context& state::get_context() const {
+state::context state::get_context() const {
   return context_;
 }
 
