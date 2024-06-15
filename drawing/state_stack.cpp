@@ -4,8 +4,12 @@
 
 namespace drawing {
 
-state_stack::state_stack_s_ptr state_stack::create(state::context context) {
-  return std::make_shared<state_stack>(std::move(context));
+state_stack_s_ptr state_stack::create(context cont) {
+  class make_shared_enabler : public state_stack {
+   public:
+    make_shared_enabler(context cont) : state_stack(std::move(cont)) {}
+  };
+  return std::make_shared<make_shared_enabler>(std::move(cont));
 }
 
 void state_stack::updte(sf::Time dt) {
@@ -47,7 +51,7 @@ bool state_stack::empty() const noexcept {
   return stack_.empty();
 }
 
-state_stack::state_stack(state::context context) : context_(context) {}
+state_stack::state_stack(context context) : context_(std::move(context)) {}
 
 state::state_ptr state_stack::create_state(state_id id) {
   auto found = factories_.find(id);

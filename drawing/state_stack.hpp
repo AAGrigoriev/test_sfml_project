@@ -11,11 +11,11 @@
 
 namespace drawing {
 
+class state;
+
 class state_stack : public std::enable_shared_from_this<state_stack> {
  public:
   enum class state_action { push, pop, clear };
-  using state_stack_s_ptr = std::shared_ptr<state_stack>;
-  using state_stack_w_ptr = std::weak_ptr<state_stack>;
 
  public:
   state_stack() = delete;
@@ -24,7 +24,7 @@ class state_stack : public std::enable_shared_from_this<state_stack> {
   state_stack& operator=(const state_stack&) = delete;
   state_stack& operator=(state_stack&&) = delete;
 
-  static state_stack_s_ptr create(state::context);
+  static state_stack_s_ptr create(context);
 
   template <typename T, typename... Args>
   void register_state(state_id state_id, Args&&...);
@@ -47,12 +47,12 @@ class state_stack : public std::enable_shared_from_this<state_stack> {
   };
 
  private:
-  state_stack(state::context context);
+  state_stack(context context);
   state::state_ptr create_state(state_id state_id);
   void apply_pending_changes();
 
  private:
-  state::context context_;
+  context context_;
   std::vector<state::state_ptr> stack_;
   std::vector<pending_change> pending_list_;
   std::unordered_map<state_id, std::function<state::state_ptr()>> factories_;

@@ -1,7 +1,9 @@
 #include "state.hpp"
 
+#include "state_stack.hpp"
+
 namespace drawing {
-state::state(state_stack::state_stack_w_ptr state_stack, context context)
+state::state(state_stack_w_ptr state_stack, context context)
     : state_stack_(state_stack), context_(context) {}
 
 void state::request_stack_push(state_id id) {
@@ -22,7 +24,7 @@ void state::request_state_clear() {
   }
 }
 
-state::context state::get_context() const {
+context state::get_context() const {
   return context_;
 }
 

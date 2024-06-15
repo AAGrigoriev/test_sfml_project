@@ -22,9 +22,15 @@ set(FILES
     state.hpp
     state.cpp
     application.hpp
-    application.cpp)
+    application.cpp
+    game_state.hpp
+    game_state.cpp
+    title_state.hpp
+    title_state.cpp
+    context.hpp)
 
 add_library(drawing STATIC ${FILES})
+
 
 target_include_directories(drawing PUBLIC ${CMAKE_SOURCE_DIR}/utility PUBLIC ${CMAKE_SOURCE_DIR}/command)
 target_link_libraries(drawing PUBLIC utility PUBLIC command)
