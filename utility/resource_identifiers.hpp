@@ -7,7 +7,7 @@ class Font;
 
 namespace utility {
 
-enum class textures_id { ufo, eagle, raptor, desert };
+enum class textures_id { ufo, eagle, raptor, desert, title_screen };
 enum class fonts_id { Main };
 
 template <typename Resource, typename Identifier>

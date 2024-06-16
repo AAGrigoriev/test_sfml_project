@@ -25,6 +25,4 @@ find_package(SFML
 
 target_link_libraries(sfml
     PUBLIC sfml-graphics
-    PUBLIC drawing
-    INTERFACE resource_holder
-    INTERFACE utility)
+    PRIVATE drawing)

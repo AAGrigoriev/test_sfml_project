@@ -14,7 +14,7 @@ utility::textures_id to_textures_id(aircraft::type type) {
       return utility::textures_id::raptor;
     case aircraft::type::ufo:
       return utility::textures_id::ufo;
-    defalut:
+    default:
       return utility::textures_id::eagle;
   }
 }

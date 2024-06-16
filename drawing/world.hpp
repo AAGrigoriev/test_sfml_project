@@ -20,13 +20,13 @@ class world : private sf::NonCopyable {
   explicit world(sf::RenderWindow& window);
   void update(sf::Time dt);
   void draw();
+  command::command_queue& get_command_queue();
 
  private:
   void load_textures();
   void build_scene();
   void adapt_player_position();
   void adapt_player_velocity();
-  command::command_queue& get_command_queue();
 
  private:
   enum class layer { background, air, layer_count };

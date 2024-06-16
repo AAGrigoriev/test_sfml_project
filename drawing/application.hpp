@@ -9,6 +9,8 @@
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/System/Time.hpp>
 
+namespace drawing {
+
 class application {
  public:
   application();
@@ -34,3 +36,5 @@ class application {
   sf::Time statistic_update_time_;
   std::size_t statistic_num_frame_;
 };
+
+}  // namespace drawing

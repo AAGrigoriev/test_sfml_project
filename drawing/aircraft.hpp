@@ -1,4 +1,5 @@
 #pragma once
+
 #include "entity.hpp"
 #include "resource_identifiers.hpp"
 
