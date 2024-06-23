@@ -29,7 +29,9 @@ set(FILES
     title_state.cpp
     context.hpp
     menu_state.hpp
-     menu_state.cpp)
+    menu_state.cpp
+    pause_state.hpp
+    pause_state.cpp)
 
 add_library(drawing STATIC ${FILES})
 
