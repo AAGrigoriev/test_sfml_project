@@ -4,6 +4,9 @@
 #include "state.hpp"
 #include "world.hpp"
 
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
+
 namespace drawing {
 
 class game_state : public state {

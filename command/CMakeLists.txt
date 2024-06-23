@@ -13,5 +13,5 @@ set(FILES
 
 add_library(command STATIC ${FILES})
 
-target_link_libraries(command PUBLIC utility)
-target_include_directories(command PUBLIC ${CMAKE_SOURCE_DIR}/utility)
+target_link_libraries(command INTERFACE utility)
+target_include_directories(command PRIVATE ${CMAKE_SOURCE_DIR}/utility)
