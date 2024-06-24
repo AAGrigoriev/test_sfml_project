@@ -21,7 +21,7 @@ void state_stack::updte(sf::Time dt) {
 }
 
 void state_stack::draw() {
-  for (const auto& ptr : stack_) {
+  for (auto& ptr : stack_) {
     ptr->draw();
   }
 }
