@@ -21,7 +21,6 @@ class task {
  private:
   std::jthread thread_;
   std::atomic_bool is_finished_;
-  bool is_finished_;  // todo: change to atomic
   sf::Clock elapsed_time_;
   std::shared_mutex mutex_;
 };

@@ -34,10 +34,7 @@ void task::run() {
       end = true;
   }
 
-  {
-    std::unique_lock _(mutex_);
-    is_finished_ = true;
-  }
+  is_finished_.store(true);
 }
 
 }  // namespace utility
