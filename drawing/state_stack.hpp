@@ -42,8 +42,8 @@ class state_stack : public std::enable_shared_from_this<state_stack> {
  private:
   struct pending_change {
     explicit pending_change(state_action action, state_id id = state_id::none);
-    state_action action;
-    state_id state_id;
+    state_action action_;
+    state_id state_id_;
   };
 
  private:

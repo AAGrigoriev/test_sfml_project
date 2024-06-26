@@ -1,5 +1,7 @@
 #include "state_stack.hpp"
 
+#include "context.hpp"
+
 #include <assert.h>
 
 namespace drawing {
@@ -13,8 +15,8 @@ state_stack_s_ptr state_stack::create(context cont) {
 }
 
 state_stack::pending_change::pending_change(state_stack::state_action action,
-                                            enum state_id id)
-    : action(action), state_id(id) {}
+                                            state_id id)
+    : action_(action), state_id_(id) {}
 
 void state_stack::update(sf::Time dt) {
   for (auto rbeg = stack_.rbegin(); rbeg != stack_.rend(); ++rbeg) {
