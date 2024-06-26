@@ -68,9 +68,9 @@ state::state_ptr state_stack::create_state(state_id id) {
 
 void state_stack::apply_pending_changes() {
   for (auto pending_change : pending_list_) {
-    switch (pending_change.action) {
+    switch (pending_change.action_) {
       case state_action::push:
-        stack_.push_back(create_state(pending_change.state_id));
+        stack_.push_back(create_state(pending_change.state_id_));
         break;
       case state_action::pop:
         stack_.pop_back();
