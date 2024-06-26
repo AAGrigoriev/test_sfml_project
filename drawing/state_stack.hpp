@@ -29,7 +29,7 @@ class state_stack : public std::enable_shared_from_this<state_stack> {
   template <typename T, typename... Args>
   void register_state(state_id state_id, Args&&...);
 
-  void updte(sf::Time dt);
+  void update(sf::Time dt);
   void draw();
   void handle_event(const sf::Event& event);
 

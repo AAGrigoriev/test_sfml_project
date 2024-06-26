@@ -11,9 +11,7 @@ project(sfml LANGUAGES CXX VERSION ${VERSION})
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(sfml main.cpp
-    game.hpp
-    game.cpp)
+add_executable(sfml main.cpp)
 
 add_subdirectory(drawing)
 add_subdirectory(utility)

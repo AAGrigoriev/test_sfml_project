@@ -1,12 +1,13 @@
 #include <iostream>
-#include "game.hpp"
+
+#include "drawing/application.hpp"
 
 using namespace std;
 
 int main() {
   try {
-    game::game game;
-    game.run();
+    drawing::application app;
+    app.run();
   } catch (std::exception& exception) {
     std::cout << exception.what() << std::endl;
   }

@@ -31,7 +31,9 @@ set(FILES
     menu_state.hpp
     menu_state.cpp
     pause_state.hpp
-    pause_state.cpp)
+    pause_state.cpp
+    loading_state.hpp
+    loading_state.cpp)
 
 add_library(drawing STATIC ${FILES})
 

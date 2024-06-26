@@ -18,7 +18,7 @@ class state {
   virtual void draw() = 0;
   virtual bool update(sf::Time dt) = 0;
   virtual bool handle_event(const sf::Event& event) = 0;
-  virtual ~state();
+  virtual ~state() = default;
 
  protected:
   void request_stack_push(state_id ID);

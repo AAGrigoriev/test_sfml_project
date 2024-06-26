@@ -12,7 +12,11 @@ state_stack_s_ptr state_stack::create(context cont) {
   return std::make_shared<make_shared_enabler>(std::move(cont));
 }
 
-void state_stack::updte(sf::Time dt) {
+state_stack::pending_change::pending_change(state_stack::state_action action,
+                                            enum state_id id)
+    : action(action), state_id(id) {}
+
+void state_stack::update(sf::Time dt) {
   for (auto rbeg = stack_.rbegin(); rbeg != stack_.rend(); ++rbeg) {
     if (!(*rbeg)->update(dt)) {
       return;

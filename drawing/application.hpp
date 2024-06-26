@@ -22,7 +22,7 @@ class application {
   void update(sf::Time dt);
   void render();
 
-  void update_statistic();
+  void update_statistic(sf::Time dt);
   void register_state();
 
  private:
@@ -31,10 +31,13 @@ class application {
   sf::RenderWindow window_;
   utility::texture_holder texture_holder_;
   utility::font_holder font_holder_;
+  player_controller player_;
 
-  sf::Text statistic_text_;
+  std::shared_ptr<state_stack> stack_;
+
+  sf::Text statistic_text_;  // TODO: add class statistic
   sf::Time statistic_update_time_;
-  std::size_t statistic_num_frame_;
+  std::size_t statistic_num_frames_ = 0;
 };
 
 }  // namespace drawing
