@@ -4,13 +4,11 @@
 
 namespace utility {
 
-task::task()
-    : thread_(&task::run, this), is_finished_(false), is_running_(false) {}
+task::task() : thread_(&task::run, this), is_finished_(true) {}
 
 void task::execute() {
   std::unique_lock _(mutex_);
-  is_finished_ = false;
-  is_running_ = true;
+  is_finished_.store(false);
   elapsed_time_.restart();
 }
 
@@ -25,6 +23,9 @@ float task::get_progress() {
 }
 
 void task::run() {
+  if (is_finished_) {
+    return;
+  }
   // dummy code. TODO: fill it and
   bool end = false;
   while (!end) {
