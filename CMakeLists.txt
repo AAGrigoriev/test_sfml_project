@@ -16,6 +16,7 @@ add_executable(sfml main.cpp)
 add_subdirectory(drawing)
 add_subdirectory(utility)
 add_subdirectory(command)
+add_subdirectory(gui)
 
 find_package(SFML
     COMPONENTS

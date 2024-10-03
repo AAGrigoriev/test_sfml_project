@@ -4,7 +4,6 @@ project(sfml LANGUAGES CXX)
 
 set(FILES
     command.hpp
-    command.cpp
     category_command.hpp
     command_queue.hpp
     command_queue.cpp
