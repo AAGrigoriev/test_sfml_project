@@ -1,13 +1,13 @@
 #pragma once
 
-#include "state.hpp"
-
 #include <functional>
 #include <memory>
 #include <unordered_map>
 #include <vector>
 
 #include <SFML/System/NonCopyable.hpp>
+
+#include "state.hpp"
 
 namespace drawing {
 

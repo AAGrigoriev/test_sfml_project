@@ -1,10 +1,10 @@
 #pragma once
 
-#include "state.hpp"
-#include "task.hpp"
-
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/Text.hpp>
+
+#include "state.hpp"
+#include "task.hpp"
 
 namespace drawing {
 class loading_state : public state {

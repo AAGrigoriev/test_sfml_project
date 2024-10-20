@@ -1,14 +1,12 @@
 #pragma once
 
-#include "state.hpp"
-
-#include <utility>
-#include <vector>
-
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
+
+#include "container.hpp"
+#include "state.hpp"
 
 namespace drawing {
 
@@ -21,13 +19,8 @@ class menu_state : public state {
   bool handle_event(const sf::Event& event) override final;
 
  private:
-  void update_option_text();
-
- private:
-  enum class option { play, exit };
-  std::vector<std::pair<sf::Text, option>> options_;
-  std::size_t option_index_;
   sf::Sprite background_;
+  gui::container container_;
 };
 
 }  // namespace drawing

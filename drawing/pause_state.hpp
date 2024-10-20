@@ -1,10 +1,11 @@
 #pragma once
 
-#include "state.hpp"
-
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+
+#include "container.hpp"
+#include "state.hpp"
 
 namespace drawing {
 
@@ -19,7 +20,7 @@ class pause_state : public state {
  private:
   sf::Sprite background_sprite_;
   sf::Text pause_text_;
-  sf::Text instruction_text_;
+  gui::container container_;
 };
 
 }  // namespace drawing

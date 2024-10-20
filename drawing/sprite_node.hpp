@@ -1,8 +1,8 @@
 #pragma once
 
-#include "scene_node.hpp"
-
 #include <SFML/Graphics/Sprite.hpp>
+
+#include "scene_node.hpp"
 
 namespace drawing {
 

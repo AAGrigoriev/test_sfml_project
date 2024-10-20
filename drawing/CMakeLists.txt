@@ -33,10 +33,12 @@ set(FILES
     pause_state.hpp
     pause_state.cpp
     loading_state.hpp
-    loading_state.cpp)
+    loading_state.cpp
+    settings_state.cpp
+    settings_state.hpp)
 
 add_library(drawing STATIC ${FILES})
 
 
-target_include_directories(drawing PUBLIC ${CMAKE_SOURCE_DIR}/utility PUBLIC ${CMAKE_SOURCE_DIR}/command)
-target_link_libraries(drawing INTERFACE utility PUBLIC command)
+target_include_directories(drawing PUBLIC ${CMAKE_SOURCE_DIR}/utility PUBLIC ${CMAKE_SOURCE_DIR}/command ${CMAKE_SOURCE_DIR}/gui)
+target_link_libraries(drawing INTERFACE utility PRIVATE command PRIVATE gui)

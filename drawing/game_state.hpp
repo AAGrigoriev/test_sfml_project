@@ -1,11 +1,11 @@
 #pragma once
 
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
+
 #include "player_contoller.hpp"
 #include "state.hpp"
 #include "world.hpp"
-
-#include <SFML/System/Time.hpp>
-#include <SFML/Window/Event.hpp>
 
 namespace drawing {
 

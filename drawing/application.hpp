@@ -1,13 +1,13 @@
 #pragma once
 
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/System/Time.hpp>
+
 #include "player_contoller.hpp"
 #include "resource_holder.hpp"
 #include "resource_identifiers.hpp"
 #include "state_stack.hpp"
-
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Graphics/Text.hpp>
-#include <SFML/System/Time.hpp>
 
 namespace drawing {
 

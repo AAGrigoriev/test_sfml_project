@@ -1,7 +1,9 @@
-#include "scene_node.hpp"
+#pragma once
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/System/Vector2.hpp>
+
+#include "scene_node.hpp"
 
 namespace drawing {
 

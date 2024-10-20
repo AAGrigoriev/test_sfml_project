@@ -1,8 +1,8 @@
 #include "state_stack.hpp"
 
-#include "context.hpp"
-
 #include <assert.h>
+
+#include "context.hpp"
 
 namespace drawing {
 

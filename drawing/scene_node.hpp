@@ -1,13 +1,13 @@
 #pragma once
 
-#include <command.hpp>
-
 #include <memory>
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Time.hpp>
+
+#include "command.hpp"
 
 namespace drawing {
 

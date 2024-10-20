@@ -1,17 +1,17 @@
 #pragma once
 
-#include "aircraft.hpp"
-#include "command_queue.hpp"
-#include "resource_holder.hpp"
-#include "resource_identifiers.hpp"
-#include "scene_node.hpp"
-
 #include <array>
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/View.hpp>
 #include <SFML/System/NonCopyable.hpp>
+
+#include "aircraft.hpp"
+#include "command_queue.hpp"
+#include "resource_holder.hpp"
+#include "resource_identifiers.hpp"
+#include "scene_node.hpp"
 
 namespace drawing {
 

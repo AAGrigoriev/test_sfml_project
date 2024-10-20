@@ -1,10 +1,10 @@
 #pragma once
 
-#include "context.hpp"
+#include <memory>
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-#include <memory>
+#include "context.hpp"
 
 namespace drawing {
 

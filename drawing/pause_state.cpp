@@ -1,6 +1,8 @@
 #include "pause_state.hpp"
 
 #include <SFML/Graphics/RectangleShape.hpp>
+
+#include "button.hpp"
 #include "math.hpp"
 
 namespace drawing {
@@ -18,11 +20,25 @@ pause_state::pause_state(state_stack_w_ptr stack, context context)
   utility::center_origin(pause_text_);
   pause_text_.setPosition(size_vec.x * 0.5f, size_vec.y * 0.4f);
 
-  instruction_text_.setFont(font);
-  instruction_text_.setString("Press Backspace to return to the main menu");
-  instruction_text_.setCharacterSize(30);
-  utility::center_origin(instruction_text_);
-  instruction_text_.setPosition(size_vec.x * 0.5f, size_vec.y * 0.6f);
+  auto return_button =
+      std::make_shared<gui::button>(*context.fonts, *context.textures);
+
+  return_button->setPosition(0.5f * size_vec.x - 100.f, 0.4f + size_vec.y + 75);
+  return_button->set_text("Return");
+  return_button->set_callback([this]() { request_stack_pop(); });
+
+  auto back_to_menu_button =
+      std::make_shared<gui::button>(*context.fonts, *context.textures);
+  back_to_menu_button->setPosition(0.5f * size_vec.x - 100.f,
+                                   0.4f * size_vec.y + 125.f);
+  back_to_menu_button->set_text("Back to menu");
+  back_to_menu_button->set_callback([this]() {
+    request_state_clear();
+    request_stack_push(state_id::menu);
+  });
+
+  container_.pack(return_button);
+  container_.pack(back_to_menu_button);
 }
 
 void pause_state::draw() {
@@ -35,7 +51,7 @@ void pause_state::draw() {
 
   render_window->draw(background_shape);
   render_window->draw(pause_text_);
-  render_window->draw(instruction_text_);
+  render_window->draw(container_);
 }
 
 bool pause_state::update(sf::Time dt) {

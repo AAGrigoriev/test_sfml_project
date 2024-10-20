@@ -1,11 +1,11 @@
 #pragma once
 
-#include "state.hpp"
-
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
+
+#include "state.hpp"
 
 namespace drawing {
 

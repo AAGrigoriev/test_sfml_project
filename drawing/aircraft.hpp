@@ -1,9 +1,9 @@
 #pragma once
 
+#include <SFML/Graphics/Sprite.hpp>
+
 #include "entity.hpp"
 #include "resource_identifiers.hpp"
-
-#include <SFML/Graphics/Sprite.hpp>
 
 namespace drawing {
 

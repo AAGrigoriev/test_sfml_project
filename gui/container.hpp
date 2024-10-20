@@ -29,6 +29,6 @@ class container : public component {
  private:
   std::vector<component::ptr> children_;
   int selected_child_{-1};
-};  // namespace gui
+};
 
 }  // namespace gui

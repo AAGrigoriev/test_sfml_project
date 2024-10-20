@@ -1,16 +1,16 @@
 #pragma once
 
-#include "player_contoller.hpp"
-#include "resource_holder.hpp"
-#include "resource_identifiers.hpp"
-
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include <gsl/pointers>
 
+#include "player_contoller.hpp"
+#include "resource_holder.hpp"
+#include "resource_identifiers.hpp"
+
 namespace drawing {
 
-enum class state_id { none, title, menu, game, loading, pause };
+enum class state_id { none, title, menu, game, loading, pause, settings };
 
 struct context {
   gsl::not_null<sf::RenderWindow*> window;

@@ -1,7 +1,8 @@
 #include "world.hpp"
-#include "sprite_node.hpp"
 
 #include <cmath>
+
+#include "sprite_node.hpp"
 
 namespace drawing {
 

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "command.hpp"
-
 #include <unordered_map>
 
 #include <SFML/Window/Event.hpp>
+
+#include "command.hpp"
 
 namespace command {
 class command_queue;
