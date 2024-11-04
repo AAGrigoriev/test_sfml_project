@@ -32,7 +32,7 @@ class settings_state : public state {
   std::array<gui::button::ptr,
              static_cast<std::size_t>(player_controller::action::action_count)>
       binding_buttons_;
-  std::array<gui::button::ptr,
+  std::array<gui::label::ptr,
              static_cast<std::size_t>(player_controller::action::action_count)>
       binding_labels_;
 };
