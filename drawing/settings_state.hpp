@@ -15,14 +15,14 @@ namespace drawing {
 
 class settings_state : public state {
  public:
-  settings_state(state_stack& stack, context context);
+  settings_state(state_stack_w_ptr& stack, context context);
 
   void draw();
   bool update(sf::Time dt);
   bool handle_event(const sf::Event& event);
 
  private:
-  void update_label();
+  void update_labels();
   void add_button_label(player_controller::action action, float y,
                         std::string_view text, context context);
 

@@ -1,10 +1,10 @@
 #include "player_contoller.hpp"
 
+#include <algorithm>
+
 #include "aircraft.hpp"
 #include "command_queue.hpp"
 #include "entity_commands.hpp"
-
-#include <algorithm>
 
 namespace drawing {
 

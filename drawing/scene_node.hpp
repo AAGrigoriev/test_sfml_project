@@ -1,13 +1,13 @@
 #pragma once
 
-#include <memory>
-
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Time.hpp>
+#include <memory>
 
 #include "command.hpp"
+#include "command_queue.hpp"
 
 namespace drawing {
 
@@ -24,6 +24,7 @@ class scene_node : public sf::Transformable,
   void on_command(const command::command& command, sf::Time time);
 
  public:
+  virtual bool destroyed() const;
   virtual command::category_flag get_category() const;
 
  private:
@@ -34,8 +35,8 @@ class scene_node : public sf::Transformable,
             sf::RenderStates states) const override final;
   virtual void draw_current(sf::RenderTarget& target,
                             sf::RenderStates states) const;
-  virtual void update_current(sf::Time dt);
-  virtual void update_children(sf::Time dt);
+  virtual void update_current(sf::Time dt, command::command_queue& commands);
+  void update_children(sf::Time dt, command::command_queue& commands);
 
  private:
   scene_node* parent_ = nullptr;
