@@ -20,7 +20,7 @@ class scene_node : public sf::Transformable,
  public:
   void attach_child(ptr child);
   scene_node::ptr detach_child(const scene_node& node);
-  void update(sf::Time dt);
+  void update(sf::Time dt, command::command_queue& commands);
   void on_command(const command::command& command, sf::Time time);
 
  public:

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string_view>>
+#include <string_view>
 //------------------------------------------------
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>

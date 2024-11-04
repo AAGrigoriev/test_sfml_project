@@ -11,4 +11,6 @@ void center_origin(T& drawable) {
                      std::floor(bound_rect.top + bound_rect.height / 2.f));
 }
 
+float to_radian(float degree) noexcept { return M_PI / 180.f * degree; }
+
 }  // namespace utility
