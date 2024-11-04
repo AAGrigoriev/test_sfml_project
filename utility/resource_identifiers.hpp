@@ -11,6 +11,7 @@ enum class textures_id {
   ufo,
   eagle,
   raptor,
+  avenger,
   desert,
   title_screen,
   button_normal,

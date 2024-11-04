@@ -35,7 +35,11 @@ set(FILES
     loading_state.hpp
     loading_state.cpp
     settings_state.cpp
-    settings_state.hpp)
+    settings_state.hpp
+    data_tables.hpp
+    data_tables.cpp
+    text_node.hpp
+    text_node.cpp)
 
 add_library(drawing STATIC ${FILES})
 
