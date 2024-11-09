@@ -8,11 +8,20 @@ class Font;
 namespace utility {
 
 enum class textures_id {
+  // aircraft
   ufo,
   eagle,
   raptor,
   avenger,
+  // airaft staff
+  bullet,
+  missile,
+  // ----- ?
   desert,
+  health_refill,
+  missile_refill,
+  fire_spread,
+  fire_rate,
   title_screen,
   button_normal,
   button_selected,

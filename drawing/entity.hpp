@@ -9,6 +9,8 @@ namespace drawing {
 
 class entity : public scene_node {
  public:
+  entity(int hitpoints);
+
   void accelerate(sf::Vector2f velocity);
   void accelerate(float vx, float vy);
 

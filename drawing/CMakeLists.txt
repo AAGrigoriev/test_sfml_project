@@ -39,7 +39,9 @@ set(FILES
     data_tables.hpp
     data_tables.cpp
     text_node.hpp
-    text_node.cpp)
+    text_node.cpp
+    projectile.hpp
+    projectile.cpp)
 
 add_library(drawing STATIC ${FILES})
 

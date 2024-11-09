@@ -22,7 +22,7 @@ utility::textures_id to_textures_id(aircraft::type type) {
   }
 }
 
-aircraft::aircraft(type type, const utility::texture_holder& textures)
+aircraft::aircraft(type type, const utility::texture_holder& textures, const utility::font_holder &fonts)
     : type_(type), sprite_(textures.get_resource(to_textures_id(type))) {
   sf::FloatRect bounds = sprite_.getLocalBounds();
   sprite_.setOrigin(bounds.width / 2, bounds.height / 2);
