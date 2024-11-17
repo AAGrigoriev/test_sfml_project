@@ -28,7 +28,7 @@ class entity : public scene_node {
   bool destroyed() const override;
 
  protected:
-  void update_current(sf::Time dt, command::command_queue& commands);
+  void update_current(sf::Time dt, command::command_queue& commands) override;
 
  private:
   sf::Vector2f velocity_;

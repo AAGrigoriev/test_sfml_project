@@ -23,12 +23,13 @@ class scene_node : public sf::Transformable,
   scene_node::ptr detach_child(const scene_node& node);
   void update(sf::Time dt, command::command_queue& commands);
   void on_command(const command::command& command, sf::Time time);
-  sf::Vector2f get_worl_position() const;
+  sf::Vector2f get_world_position() const;
   sf::Transform get_world_transform() const;
 
  public:
   virtual bool destroyed() const;
   virtual command::category_flag get_category() const;
+  virtual sf::FloatRect get_bounding_rect() const;
 
  private:
   void draw_child(sf::RenderTarget& target, sf::RenderStates states) const;

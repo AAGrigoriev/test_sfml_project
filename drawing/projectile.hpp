@@ -19,7 +19,7 @@ class projectile : public entity {
   bool is_guided() const noexcept;
 
   command::category_flag get_category() const override;
-  sf::FloatRect get_bounding_rect() const;  // override
+  sf::FloatRect get_bounding_rect() const override;
 
   float get_max_speed() const;
   int get_damage() const;

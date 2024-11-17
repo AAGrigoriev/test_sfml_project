@@ -72,6 +72,8 @@ command::category_flag scene_node::get_category() const {
   return command::category_flag(command::category::scene);
 }
 
+sf::FloatRect scene_node::get_bounding_rect() const { return {}; }
+
 void scene_node::update_current(sf::Time dt, command::command_queue& commands) {
   // empty methods
 }
