@@ -55,6 +55,19 @@ void scene_node::on_command(const command::command& command, sf::Time time) {
   }
 }
 
+sf::Vector2f scene_node::get_world_position() const {
+  return get_world_transform() * sf::Vector2f();
+}
+
+sf::Transform scene_node::get_world_transform() const {
+  sf::Transform transform = sf::Transform::Identity;
+
+  for (const scene_node* node = this; node != nullptr; node = node->parent_)
+    transform = node->getTransform() * transform;
+
+  return transform;
+}
+
 command::category_flag scene_node::get_category() const {
   return command::category_flag(command::category::scene);
 }

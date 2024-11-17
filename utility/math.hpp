@@ -1,5 +1,6 @@
 #pragma once
 
+#include <SFML/System/Vector2.hpp>
 #include <cmath>
 
 namespace utility {
@@ -11,6 +12,10 @@ void center_origin(T& drawable) {
                      std::floor(bound_rect.top + bound_rect.height / 2.f));
 }
 
-float to_radian(float degree) noexcept { return M_PI / 180.f * degree; }
+float to_radian(float degree) noexcept;
 
+float to_degree(float rad) noexcept;
+float vector_length(sf::Vector2f vector);
+
+sf::Vector2f unit_vector(sf::Vector2f vector);
 }  // namespace utility

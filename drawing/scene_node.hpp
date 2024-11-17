@@ -4,6 +4,7 @@
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Time.hpp>
+#include <SFML/System/Vector2.hpp>
 #include <memory>
 
 #include "command.hpp"
@@ -22,6 +23,8 @@ class scene_node : public sf::Transformable,
   scene_node::ptr detach_child(const scene_node& node);
   void update(sf::Time dt, command::command_queue& commands);
   void on_command(const command::command& command, sf::Time time);
+  sf::Vector2f get_worl_position() const;
+  sf::Transform get_world_transform() const;
 
  public:
   virtual bool destroyed() const;

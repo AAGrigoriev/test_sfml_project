@@ -16,7 +16,7 @@ class projectile : public entity {
   projectile(type type, const utility::texture_holder& holder);
 
   void guide_towards(sf::Vector2f posistion);
-  bool is_guided();
+  bool is_guided() const noexcept;
 
   command::category_flag get_category() const override;
   sf::FloatRect get_bounding_rect() const;  // override
