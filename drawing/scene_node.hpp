@@ -30,6 +30,8 @@ class scene_node : public sf::Transformable,
   virtual bool destroyed() const;
   virtual command::category_flag get_category() const;
   virtual sf::FloatRect get_bounding_rect() const;
+  virtual bool is_marked_for_removal() const;
+  virtual bool is_destroyed() const;
 
  private:
   void draw_child(sf::RenderTarget& target, sf::RenderStates states) const;

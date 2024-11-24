@@ -15,6 +15,7 @@ void center_origin(T& drawable) {
 float to_radian(float degree) noexcept;
 
 float to_degree(float rad) noexcept;
+
 float vector_length(sf::Vector2f vector);
 
 sf::Vector2f unit_vector(sf::Vector2f vector);

@@ -74,6 +74,10 @@ command::category_flag scene_node::get_category() const {
 
 sf::FloatRect scene_node::get_bounding_rect() const { return {}; }
 
+bool scene_node::is_marked_for_removal() const { return is_destroyed(); }
+
+bool scene_node::is_destroyed() const { return false; }
+
 void scene_node::update_current(sf::Time dt, command::command_queue& commands) {
   // empty methods
 }
